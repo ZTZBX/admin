@@ -1,14 +1,24 @@
-<!DOCTYPE html>
-<html>
-<header>
-    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
-    <script src="./index.js" type="text/javascript"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
-        type="text/css">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css" type="text/css">
-    <link rel="stylesheet" href="./index.css" type="text/css">
-</header>
-<body class="main">
+function showUtl() {
+    var target = document.getElementById("utilities_menu");
+    var other_pl = document.getElementById("players_menu");
 
-</body>
+    if (other_pl.style.display !== "none") {
+        other_pl.style.display = "none";
+    }
+
+    if (target.style.display === "none") {
+        target.style.display = "block";
+    } 
+}
+
+function showPlayers() {
+    var target = document.getElementById("players_menu");
+    var other_pl = document.getElementById("utilities_menu");
+
+    if (other_pl.style.display !== "none") {
+        other_pl.style.display = "none";
+    }
+    if (target.style.display === "none") {
+        target.style.display = "block";
+    }
+}
