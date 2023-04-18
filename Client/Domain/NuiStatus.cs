@@ -10,5 +10,7 @@ namespace admin.Client
         static public bool active = false;
         static public bool noClip = false;
 
+        static public bool Invincible = false;
+
     }
 }

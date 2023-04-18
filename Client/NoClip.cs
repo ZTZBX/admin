@@ -56,8 +56,6 @@ namespace admin.Client
 
         async void RunNoClip()
         {
-
-
             int player = PlayerId();
             int ped = GetPlayerPed(player);
             Vector3 currentPos;
