@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./index.css" type="text/css">
 </header>
 
-<body >
+<body>
 
     <a class="logo" target="_blank">
         <h1>ZTZ<color style="color: #CE0F0F;">B</color>X</h1>
@@ -74,10 +74,22 @@
                                     </div>
 
                                     <div id="players_menu"
-                                        style="display: none; padding: 5px; margin-left: 80px;margin-top: 10px;">
-                                        players list
+                                        style="display: none; margin-left: 70px;margin-top: 10px;height:370px;overflow:scroll;overflow-x:hidden;">
+                                        
+                                        <ul  id="users_list">
+                                            
+
+                                        </ul>
                                     </div>
+
+
                                 </div>
+
+                                <script>
+                              
+                                    var completelist = document.getElementById("users_list");
+                                    completelist.innerHTML += "<li style=\"list-style: none;margin-top:10px\"> <div style=\"width: 270px;\" class=\"card\"> <div class=\"card-body\" style=\"color: #1f2029;\">"+ "user_1" +"</div> </div> </li>";
+                                </script>
 
 
                             </div>

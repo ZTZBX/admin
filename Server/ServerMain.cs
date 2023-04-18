@@ -11,9 +11,9 @@ namespace admin.Server
         public ServerMain()
         {
             EventHandlers["checkAdmin"] += new Action<Player, string>(CheckAdmin);
-            EventHandlers["kickPlayer"] += new Action<Player, string, int, string>(kickPlayer);      
+            EventHandlers["kickPlayer"] += new Action<Player, string, int, string>(kickPlayer);           
         }
-
+        
         private void kickPlayer([FromSource] Player user, string token, int id, string reason)
         {
             bool isAdmin = Exports["core-ztzbx"].playerAdmin(token);

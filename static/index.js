@@ -31,6 +31,12 @@ function changeCoords(new_coords) {
 }
 
 $(function () {
+
+    
+
+
+    var entry = document.createElement('li');
+
     window.addEventListener('message', function (event) {
         var item = event.data;
 
