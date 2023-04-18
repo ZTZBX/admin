@@ -10,12 +10,19 @@ namespace admin.Client
         public ClientMain()
         {
             EventHandlers["onClientResourceStart"] += new Action<string>(OnClientResourceStart);
+            EventHandlers["openAdminNui"] += new Action<string>(OpenAdminNui);
+        }
+
+        private void OpenAdminNui(string info)
+        {
+            ClientMain.AdminNui(true);
+            NuiStatus.active = true;
         }
 
         private void OnClientResourceStart(string resourceName)
         {
             // LOGIC HANGLE
-            if (GetCurrentResourceName() != resourceName) return;
+            ClientMain.AdminNui(false);
             ClientMain.AdminNui(false);
             NuiStatus.active = false;
             OpenNuiEvent();
@@ -30,12 +37,13 @@ namespace admin.Client
 
                 if (IsControlJustReleased(0, 212))
                 {
+
                     if (!NuiStatus.active)
                     {
-                        ClientMain.AdminNui(true);
-                        NuiStatus.active = true;
+                        TriggerServerEvent("checkAdmin", Exports["core-ztzbx"].playerToken());
                         await Delay(2);
                     }
+                    
                 }
             }
         }

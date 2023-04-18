@@ -8,6 +8,7 @@
   
     <ItemGroup>
       <PackageReference Include="CitizenFX.Core.Server" Version="1.0.*" />
+      <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     </ItemGroup>
 </Project>
   
