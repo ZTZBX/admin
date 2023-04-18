@@ -21,9 +21,6 @@ namespace admin.Client
 
         private void OnClientResourceStart(string resourceName)
         {
-            // LOGIC HANGLE
-            ClientMain.AdminNui(false);
-            ClientMain.AdminNui(false);
             NuiStatus.active = false;
             OpenNuiEvent();
         }
