@@ -19,6 +19,7 @@ body {
     font-size: 15px;
     line-height: 1.7;
     overflow-x: hidden;
+    background-color: transparent;
 }
 
 .logo {
@@ -115,6 +116,10 @@ body {
 
 .menu li a.players:before {
     content: "\f0c0";
+}
+
+.menu li a.exit:before {
+    content: "\f00d";
 }
 
 .menu li a:hover {
