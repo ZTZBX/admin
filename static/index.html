@@ -31,39 +31,50 @@
                                         </li>
                                         <li title="players"><a class="players" onclick="showPlayers()">Players</a></li>
 
-                                        <li title="exit"  id="exit" style="position: fixed; bottom: 0;"><a class="exit">Exit</a></li>
+                                        <li title="exit" id="exit" style="position: fixed; bottom: 0;"><a
+                                                class="exit">Exit</a></li>
                                     </ul>
                                     <!-- Default menu opened -->
                                     <div id="utilities_menu"
                                         style="display: block; padding: 5px; margin-left: 80px;margin-top: 10px;">
                                         <div>
-                                            <p style="text-align: left;">Coords</p>
-                                            <p>
-                                                X:<strong>
-                                                    5.55656456
-                                                </strong>
+                                            <h5>Coords</h5>
 
-                                                Y:<strong>
-                                                    -5.55656456
-                                                </strong>
+                                            <div style="justify-content:center; display:flex">
+                                                <div style="float: left; margin-left: 3px;">
+                                                    X:<p id="x_coord"
+                                                        style="float: right;color: #CE0F0F;margin-left: 5px;">544.45655
+                                                    </p>
+                                                </div>
 
-                                                Z:<strong>
-                                                    5.55656456
-                                                </strong>
+                                                <div style="float: left; margin-left: 3px;">
+                                                    Y: <p id="y_coord"
+                                                        style="float: right;color: #CE0F0F;margin-left: 5px;">2.55655
+                                                    </p>
+                                                </div>
 
-                                            </p>
+                                                <div style="float: left; margin-left: 3px;">
+                                                    Z: <p id="z_coord"
+                                                        style="float: right;color: #CE0F0F;margin-left: 5px;">
+                                                        -5233.45655</p>
+                                                </div>
+                                            </div>
+
+                                            <h5>Actions</h5>
+
+                                            <div style="padding-left: 1px; padding-right: 1px;">
+                                                <a href="#" class="btn mt-4">invencible</a>
+                                                <a href="#" class="btn mt-4">noclip</a>
+                                                <a href="#" class="btn mt-4">revive</a>
+                                                <a href="#" class="btn mt-4">die</a>
+                                                <a href="#" id="kick_me" class="btn mt-4">kick test</a>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <p style="text-align: left;" >Actions</p>
-                                            <a href="#" class="btn mt-4">invencible</a>
-                                            <a href="#" class="btn mt-4">noclip</a>
-                                            <a href="#" class="btn mt-4">revive</a>
-                                            <a href="#" class="btn mt-4">die</a>
-                                            <a href="#" id="kick_me" class="btn mt-4">kick test</a>
-                                        </div>
+
                                     </div>
 
-                                    <div id="players_menu" style="display: none; padding: 5px; margin-left: 80px;margin-top: 10px;">
+                                    <div id="players_menu"
+                                        style="display: none; padding: 5px; margin-left: 80px;margin-top: 10px;">
                                         players list
                                     </div>
                                 </div>

@@ -23,19 +23,37 @@ function showPlayers() {
     }
 }
 
+function changeCoords(new_coords) {
+    coords = JSON.parse(new_coords["coords"])
+    document.getElementById("z_coord").innerText = coords.z
+    document.getElementById("x_coord").innerText = coords.x
+    document.getElementById("y_coord").innerText = coords.y
+}
 
 $(function () {
     window.addEventListener('message', function (event) {
         var item = event.data;
+
         if (item.showAdmin == true) {
+
+            fetch(`https://admin/coords`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json; charset=UTF-8',
+                },
+                body: JSON.stringify({
+                })
+            }).then(resp => resp.json()).then(success => changeCoords(success));
+
             document.getElementsByClassName("main")[0].style.display = "block";
+
         }
         else {
             document.getElementsByClassName("main")[0].style.display = "none";
         }
     });
 
-    $("#exit").click(function() {
+    $("#exit").click(function () {
 
         fetch(`https://admin/exit`, {
             method: 'POST',
@@ -46,13 +64,13 @@ $(function () {
             })
         }).then(resp => resp.json()).then(
             resp => document.getElementById("error_message").innerHTML = resp["error"]
-            ).then(
-                resp => document.getElementById("error_message").style.display = "block"   
-            );
+        ).then(
+            resp => document.getElementById("error_message").style.display = "block"
+        );
     });
-    
 
-    $("#kick_me").click(function() {
+
+    $("#kick_me").click(function () {
 
         fetch(`https://admin/serverKick`, {
             method: 'POST',
@@ -65,9 +83,9 @@ $(function () {
             })
         }).then(resp => resp.json()).then(
             resp => document.getElementById("error_message").innerHTML = resp["error"]
-            ).then(
-                resp => document.getElementById("error_message").style.display = "block"   
-            );
+        ).then(
+            resp => document.getElementById("error_message").style.display = "block"
+        );
     });
 
 });
