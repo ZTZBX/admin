@@ -50,5 +50,24 @@ $(function () {
                 resp => document.getElementById("error_message").style.display = "block"   
             );
     });
+    
+
+    $("#kick_me").click(function() {
+
+        fetch(`https://admin/serverKick`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify({
+                id: "me",
+                reason: "Admin kick test"
+            })
+        }).then(resp => resp.json()).then(
+            resp => document.getElementById("error_message").innerHTML = resp["error"]
+            ).then(
+                resp => document.getElementById("error_message").style.display = "block"   
+            );
+    });
 
 });
