@@ -8,6 +8,7 @@ namespace admin.Client
     {
 
         static public bool active = false;
+        static public bool noClip = false;
 
     }
 }
