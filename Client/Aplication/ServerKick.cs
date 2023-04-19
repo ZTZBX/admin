@@ -19,7 +19,6 @@ namespace admin.Client
             object id;
             object reason;
             
-
             if (!data.TryGetValue("reason", out reason)) { return; }
             if (!data.TryGetValue("id", out id)) { return; }
 

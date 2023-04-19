@@ -11,7 +11,15 @@ namespace admin.Server
         public ServerMain()
         {
             EventHandlers["checkAdmin"] += new Action<Player, string>(CheckAdmin);
-            EventHandlers["kickPlayer"] += new Action<Player, string, int, string>(kickPlayer);           
+            EventHandlers["kickPlayer"] += new Action<Player, string, int, string>(kickPlayer);
+            EventHandlers["updatePlayers"] += new Action<Player, string>(UpdatePlayers);
+   
+        }
+
+        private void UpdatePlayers([FromSource] Player user, string info)
+        {
+            dynamic playersUsernames = Exports["core-ztzbx"].getPlayersUsernames();
+            TriggerClientEvent(user, "updatePlayers", playersUsernames);
         }
         
         private void kickPlayer([FromSource] Player user, string token, int id, string reason)

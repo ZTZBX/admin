@@ -29,7 +29,7 @@
                                     <ul class="menu">
                                         <li title="utilities"><a class="utilities" onclick="showUtl()">Utilities</a>
                                         </li>
-                                        <li title="players"><a class="players" onclick="showPlayers()">Players</a></li>
+                                        <li title="players"><a class="players" id="getplayers" onclick="showPlayers()">Players</a></li>
 
                                         <li title="exit" id="exit" style="position: fixed; bottom: 0;"><a
                                                 class="exit">Exit</a></li>
@@ -74,12 +74,30 @@
                                     </div>
 
                                     <div id="players_menu"
-                                        style="display: none; padding: 5px; margin-left: 80px;margin-top: 10px;">
+                                        style="display: none; padding-left: 7rem;padding-top: 1rem;overflow-y: scroll;height: 400px;">
+
+                                        <input type="text" id="playersFilter" onkeyup="filterPlayers()" placeholder="Username Filter" style="width: 90%; margin-bottom: 1rem; position: sticky;top: 0;" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
                                         
                                     </div>
+
+                                    <style>
+                                        .player {
+                                            height: 90px;
+                                            width: 90%;
+                                            color: #1f2029;
+                                            background-color: white;
+                                            border-radius: 2px;
+                                            margin-bottom: 1rem;
+                                            box-shadow: 0 8px 24px 0 rgba(255, 235, 167, .2);
+
+
+                                        }
+
+                                        .player p {
+                                            margin-bottom: 0;
+                                        }
+                                    </style>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>

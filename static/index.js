@@ -1,3 +1,5 @@
+var players = [];
+
 function showUtl() {
     var target = document.getElementById("utilities_menu");
     var other_pl = document.getElementById("players_menu");
@@ -30,12 +32,62 @@ function changeCoords(new_coords) {
     document.getElementById("y_coord").innerText = coords.y
 }
 
+function generatePlayerHtml(username)
+{
+    var players_base = ' \
+    <div class="player" id="player_'+username+'"> \
+    <p>'+username+'</p> \
+    <a href="#" class="btn mt-4">ban</a> \
+    <a href="#" class="btn mt-4">kick</a> \
+    <a href="#" class="btn mt-4">tpme</a> \
+    <a href="#" class="btn mt-4">tp</a> \
+    </div>';
+
+    return players_base;
+}
+
+function filterPlayers() {
+    var input =  document.getElementById('playersFilter');
+    filter = input.value.toUpperCase();
+
+    for (var i in players)
+    {
+        if (!players[i].includes(i))
+        {
+            document.getElementById("palyer_"+players[i]).style.display = "none";
+        } 
+        else
+        {
+            document.getElementById("palyer_"+players[i]).style.display = "block";
+        }
+    }
+
+}
+
+function addPlayers(players) {
+
+    players = JSON.parse(players["data"]).players;
+
+    for (var i in players)
+    {
+
+        document.getElementById("players_menu").innerHTML += generatePlayerHtml(players[i]);
+    }
+    
+}
+
 $(function () {
 
-    
-
-
-    var entry = document.createElement('li');
+    $("#getplayers").click(function () {
+        fetch(`https://admin/getplayers`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify({
+            })
+        }).then(resp => resp.json()).then(success => addPlayers(success));
+    });
 
     window.addEventListener('message', function (event) {
         var item = event.data;
@@ -143,5 +195,7 @@ $(function () {
             resp => document.getElementById("error_message").style.display = "block"
         );
     });
+
+
 
 });

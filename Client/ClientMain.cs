@@ -15,6 +15,7 @@ namespace admin.Client
 
         private void OpenAdminNui(string info)
         {
+            TriggerServerEvent("updatePlayers", "");
             ClientMain.AdminNui(true);
             NuiStatus.active = true;
         }
@@ -27,6 +28,8 @@ namespace admin.Client
 
         private async void OpenNuiEvent()
         {
+
+
 
             while (true)
             {
