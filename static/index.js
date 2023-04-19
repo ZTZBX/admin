@@ -1,4 +1,4 @@
-var players = [];
+window.players = [];
 
 function showUtl() {
     var target = document.getElementById("utilities_menu");
@@ -50,15 +50,15 @@ function filterPlayers() {
     var input =  document.getElementById('playersFilter');
     filter = input.value.toUpperCase();
 
-    for (var i in players)
+    for (var i in window.players)
     {
-        if (!players[i].includes(i))
+        if (!window.players[i].toUpperCase().includes(filter))
         {
-            document.getElementById("palyer_"+players[i]).style.display = "none";
+            document.getElementById("player_"+window.players[i]).style.display = "none";
         } 
         else
         {
-            document.getElementById("palyer_"+players[i]).style.display = "block";
+            document.getElementById("player_"+window.players[i]).style.display = "block";
         }
     }
 
@@ -66,12 +66,13 @@ function filterPlayers() {
 
 function addPlayers(players) {
 
-    players = JSON.parse(players["data"]).players;
+    document.getElementById("players_menu").innerHTML = '<input type="text" id="playersFilter" onkeyup="filterPlayers()" placeholder="Username Filter" style="width: 90%; margin-bottom: 1rem; position: sticky;top: 0;" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">';
+    
+    window.players = JSON.parse(players["data"]).players;
 
-    for (var i in players)
-    {
-
-        document.getElementById("players_menu").innerHTML += generatePlayerHtml(players[i]);
+    for (var i in window.players)
+    { 
+        document.getElementById("players_menu").innerHTML += generatePlayerHtml(window.players[i]);
     }
     
 }
@@ -120,11 +121,7 @@ $(function () {
             },
             body: JSON.stringify({
             })
-        }).then(resp => resp.json()).then(
-            resp => document.getElementById("error_message").innerHTML = resp["error"]
-        ).then(
-            resp => document.getElementById("error_message").style.display = "block"
-        );
+        }).then(resp => resp.json())
     });
 
 
