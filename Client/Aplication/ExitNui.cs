@@ -6,9 +6,9 @@ using static CitizenFX.Core.Native.API;
 
 namespace admin.Client
 {
-    public class NUI : BaseScript
+    public class ExitNui : BaseScript
     {
-        public NUI()
+        public ExitNui()
         {
             RegisterNuiCallbackType("exit");
             EventHandlers["__cfx_nui:exit"] += new Action<IDictionary<string, object>, CallbackDelegate>(Exit);

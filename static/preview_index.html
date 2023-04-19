@@ -63,7 +63,7 @@
                                             <h5>Actions</h5>
 
                                             <div style="padding-left: 1px; padding-right: 1px;">
-                                                <a href="#" class="btn mt-4">invincible</a>
+                                                <a href="#" id="invincible" class="btn mt-4">invincible</a>
                                                 <a href="#" id="noclip" class="btn mt-4">noclip</a>
                                                 <a href="#" class="btn mt-4">revive</a>
                                                 <a href="#" id="die" class="btn mt-4">die</a>
@@ -74,24 +74,56 @@
                                     </div>
 
                                     <div id="players_menu"
-                                        style="display: none; margin-left: 70px;margin-top: 10px;height:370px;overflow:scroll;overflow-x:hidden;">
-                                        
-                                        <ul  id="users_list">
-                                            
-
-                                        </ul>
+                                        style="display: none; padding-left: 7rem;padding-top: 1rem;overflow-y: scroll;height: 400px;">
+                                        <div class="player">
+                                            <a href="#" class="btn mt-4">ban</a>
+                                            <a href="#" class="btn mt-4">kick</a>
+                                            <a href="#" class="btn mt-4">tpme</a>
+                                            <a href="#" class="btn mt-4">tp</a>
+                                            <p>demo_user_1</p>
+                                        </div>
+                                        <div class="player">
+                                            <a href="#" class="btn mt-4">ban</a>
+                                            <a href="#" class="btn mt-4">kick</a>
+                                            <a href="#" class="btn mt-4">tpme</a>
+                                            <a href="#" class="btn mt-4">tp</a>
+                                            <p>demo_user_1</p>
+                                        </div>
+                                        <div class="player">
+                                            <a href="#" class="btn mt-4">ban</a>
+                                            <a href="#" class="btn mt-4">kick</a>
+                                            <a href="#" class="btn mt-4">tpme</a>
+                                            <a href="#" class="btn mt-4">tp</a>
+                                            <p>demo_user_2</p>
+                                        </div>
+                                        <div class="player">
+                                            <a href="#" class="btn mt-4">ban</a>
+                                            <a href="#" class="btn mt-4">kick</a>
+                                            <a href="#" class="btn mt-4">tpme</a>
+                                            <a href="#" class="btn mt-4">tp</a>
+                                            <p>demo_user_3</p>
+                                        </div>
+                                        <div class="player">
+                                            <a href="#" class="btn mt-4">ban</a>
+                                            <a href="#" class="btn mt-4">kick</a>
+                                            <a href="#" class="btn mt-4">tpme</a>
+                                            <a href="#" class="btn mt-4">tp</a>
+                                            <p>demo_user_4</p>
+                                        </div>
                                     </div>
 
-
+                                    <style>
+                                        .player {
+                                            height: 85px;
+                                            width: 90%;
+                                            color: #1f2029;
+                                            background-color: white;
+                                            border-radius: 2px;
+                                            margin-bottom: 1rem;
+                                            box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
+                                        }
+                                    </style>
                                 </div>
-
-                                <script>
-                              
-                                    var completelist = document.getElementById("users_list");
-                                    completelist.innerHTML += "<li style=\"list-style: none;margin-top:10px\"> <div style=\"width: 270px;\" class=\"card\"> <div class=\"card-body\" style=\"color: #1f2029;\">"+ "user_1" +"</div> </div> </li>";
-                                </script>
-
-
                             </div>
                         </div>
                     </div>
