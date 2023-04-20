@@ -8,6 +8,10 @@ namespace admin.Client
 {
     public class UpdatePlayers : BaseScript
     {
+
+        private List<string> list_of_stringged_list = new List<string>();
+        private string list_string;
+
         public UpdatePlayers()
         {
             RegisterNuiCallbackType("getplayers");
@@ -18,23 +22,27 @@ namespace admin.Client
 
         private void UpdatePlayersAction(dynamic playersUernames)
         {
+
+            PlayersMeta.usernames.Clear();
+
             foreach (string playerUsername in playersUernames)
             {
-                if (!PlayersMeta.usernames.Contains(playerUsername)){PlayersMeta.usernames.Add(playerUsername);}
+                PlayersMeta.usernames.Add(playerUsername);
             }
         }
 
         private void Getplayers(IDictionary<string, object> data, CallbackDelegate cb)
         {
 
-            List<string> list_of_stringged_list = new List<string>();
+            list_of_stringged_list.Clear();
 
             foreach(string playerUsername in PlayersMeta.usernames)
             {
                 list_of_stringged_list.Add("\""+playerUsername+"\"");
 
             }
-            string list_string = string.Join(",", list_of_stringged_list);
+
+            list_string = string.Join(",", list_of_stringged_list);
 
             cb(new
             {
