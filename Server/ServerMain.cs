@@ -19,7 +19,6 @@ namespace admin.Server
         private void UpdatePlayers([FromSource] Player user, string info)
         {
             dynamic playersUsernames = Exports["core-ztzbx"].getPlayersUsernames();
-             
             TriggerClientEvent(user, "updatePlayers", playersUsernames);
         }
         

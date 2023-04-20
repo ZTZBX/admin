@@ -69,13 +69,11 @@ namespace admin.Client
             float cy;
             float cz;
 
-            float noclip_speed = 1.5f;
+            float noclip_speed = 0.4f;
 
 
             while (true)
             {
-
-
                 await Delay(0);
 
                 if (!NuiStatus.noClip) { continue; }
@@ -109,24 +107,6 @@ namespace admin.Client
                     z = z - speed * cz;
                 }
 
-                // right
-                if (IsControlPressed(0, 269))
-                {
-                    x = x - 1;
-                }
-
-                // left
-                if (IsControlPressed(0, 34))
-                {
-                    x = x - 1;
-                }
-
-                // right
-                if (IsControlPressed(0, 9))
-                {
-                    x = x + 1;
-                }
-
                 // up
                 if (IsControlPressed(0, 203))
                 {
@@ -146,7 +126,7 @@ namespace admin.Client
                 }
                 else
                 {
-                    noclip_speed = 1.5f;
+                    noclip_speed = 0.4f;
                 }
 
                 SetEntityCoordsNoOffset(ped, x, y, z, true, true, true);
