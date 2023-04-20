@@ -26,7 +26,7 @@ namespace admin.Client
             {
                 await Delay(0);
                 if (!NuiStatus.Invincible) { continue; }
-                SetEntityHealth(GetPlayerPed(-1), 100);
+                SetEntityHealth(GetPlayerPed(-1), 200);
             }
         }
 
