@@ -11,7 +11,7 @@ namespace admin.Server
         public ServerMain()
         {
             EventHandlers["checkAdmin"] += new Action<Player, string>(CheckAdmin);
-            EventHandlers["kickPlayer"] += new Action<Player, string, int, string>(kickPlayer);
+            EventHandlers["kickPlayer"] += new Action<Player, string, string, string>(kickPlayer);
             EventHandlers["updatePlayers"] += new Action<Player, string>(UpdatePlayers);
    
         }
@@ -22,13 +22,13 @@ namespace admin.Server
             TriggerClientEvent(user, "updatePlayers", playersUsernames);
         }
         
-        private void kickPlayer([FromSource] Player user, string token, int id, string reason)
+        private void kickPlayer([FromSource] Player user, string token, string username, string reason)
         {
             bool isAdmin = Exports["core-ztzbx"].playerAdmin(token);
 
             if (isAdmin)
             {
-                DropPlayer(Players[id].Handle, reason);
+                DropPlayer(Exports["core-ztzbx"].getPlayerHandleFromUsername(username), reason);
             }
         }
 

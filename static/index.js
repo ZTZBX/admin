@@ -32,25 +32,37 @@ function changeCoords(new_coords) {
     document.getElementById("y_coord").innerText = coords.y
 }
 
-function banPlayer(user){
+function banPlayer(user) {
     fetch(`https://admin/banplayer`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json; charset=UTF-8',
-            },
-            body: JSON.stringify({
-                username: user
-            })
-        });
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify({
+            username: user
+        })
+    });
 }
 
-function generatePlayerHtml(username)
-{
+function chickPlayer(user) {
+    fetch(`https://admin/serverKick`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify({
+            username: user,
+            reason: "Admin kick test"
+        })
+    })
+}
+
+function generatePlayerHtml(username) {
     var players_base = ' \
-    <div class="player" id="player_'+username+'"> \
-    <p>'+username+'</p> \
-    <a href="#" onClick="banPlayer(\''+username+'\')" class="btn mt-4">ban</a> \
-    <a href="#" class="btn mt-4">kick</a> \
+    <div class="player" id="player_'+ username + '"> \
+    <p>'+ username + '</p> \
+    <a href="#" onClick="banPlayer(\''+ username + '\')" class="btn mt-4">ban</a> \
+    <a href="#" onClick="chickPlayer(\''+ username + '\')" class="btn mt-4">kick</a> \
     <a href="#" class="btn mt-4">tpme</a> \
     <a href="#" class="btn mt-4">tp</a> \
     </div>';
@@ -59,18 +71,15 @@ function generatePlayerHtml(username)
 }
 
 function filterPlayers() {
-    var input =  document.getElementById('playersFilter');
+    var input = document.getElementById('playersFilter');
     filter = input.value.toUpperCase();
 
-    for (var i in window.players)
-    {
-        if (!window.players[i].toUpperCase().includes(filter))
-        {
-            document.getElementById("player_"+window.players[i]).style.display = "none";
-        } 
-        else
-        {
-            document.getElementById("player_"+window.players[i]).style.display = "block";
+    for (var i in window.players) {
+        if (!window.players[i].toUpperCase().includes(filter)) {
+            document.getElementById("player_" + window.players[i]).style.display = "none";
+        }
+        else {
+            document.getElementById("player_" + window.players[i]).style.display = "block";
         }
     }
 
@@ -79,14 +88,13 @@ function filterPlayers() {
 function addPlayers(players) {
 
     document.getElementById("players_menu").innerHTML = '<input type="text" id="playersFilter" onkeyup="filterPlayers()" placeholder="Username Filter" style="width: 90%; margin-bottom: 1rem; position: sticky;top: 0;" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">';
-    
+
     window.players = JSON.parse(players["data"]).players;
 
-    for (var i in window.players)
-    { 
+    for (var i in window.players) {
         document.getElementById("players_menu").innerHTML += generatePlayerHtml(window.players[i]);
     }
-    
+
 }
 
 $(function () {
@@ -145,14 +153,10 @@ $(function () {
                 'Content-Type': 'application/json; charset=UTF-8',
             },
             body: JSON.stringify({
-                id: "me",
+                username: "me",
                 reason: "Admin kick test"
             })
-        }).then(resp => resp.json()).then(
-            resp => document.getElementById("error_message").innerHTML = resp["error"]
-        ).then(
-            resp => document.getElementById("error_message").style.display = "block"
-        );
+        })
     });
 
 

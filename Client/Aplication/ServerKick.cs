@@ -16,20 +16,19 @@ namespace admin.Client
 
         private void ServerKickNui(IDictionary<string, object> data, CallbackDelegate cb)
         {
-            object id;
+            object username;
             object reason;
             
             if (!data.TryGetValue("reason", out reason)) { return; }
-            if (!data.TryGetValue("id", out id)) { return; }
+            if (!data.TryGetValue("username", out username)) { return; }
 
-            if (id.ToString() == "me")
+            if (username.ToString() == "me")
             {
-                TriggerServerEvent("kickPlayer", Exports["core-ztzbx"].playerToken(), GetPlayerServerId(PlayerId()), reason);
+                TriggerServerEvent("kickPlayer", Exports["core-ztzbx"].playerToken(), Exports["core-ztzbx"].playerUsername(), reason);
             }
             else 
             {
-                int current_id = Int32.Parse(id.ToString());
-                TriggerServerEvent("kickPlayer", Exports["core-ztzbx"].playerToken(), current_id, reason);
+                TriggerServerEvent("kickPlayer", Exports["core-ztzbx"].playerToken(), username, reason);
             }
 
             
