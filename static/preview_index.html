@@ -29,7 +29,7 @@
                                     <ul class="menu">
                                         <li title="utilities"><a class="utilities" onclick="showUtl()">Utilities</a>
                                         </li>
-                                        <li title="players"><a class="players" onclick="showPlayers()">Players</a></li>
+                                        <li title="players"><a class="players" id="getplayers" onclick="showPlayers()">Players</a></li>
 
                                         <li title="exit" id="exit" style="position: fixed; bottom: 0;"><a
                                                 class="exit">Exit</a></li>
@@ -74,50 +74,7 @@
                                     </div>
 
                                     <div id="players_menu"
-                                        style="display: none; padding-left: 7rem;padding-top: 1rem;overflow-y: scroll;height: 400px;">
-
-                                        <input type="text" id="playersFilter" onkeyup="filterPlayers()" placeholder="Username Filter" style="width: 90%; margin-bottom: 1rem; position: sticky;top: 0;" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                                        
-                                        <div class="player">
-                                            <p>zabbix</p>
-                                            <a href="#" class="btn mt-4">ban</a>
-                                            <a href="#" class="btn mt-4">kick</a>
-                                            <a href="#" class="btn mt-4">tpme</a>
-                                            <a href="#" class="btn mt-4">tp</a>
-
-                                        </div>
-                                        <div class="player">
-                                            <p>alexander</p>
-                                            <a href="#" class="btn mt-4">ban</a>
-                                            <a href="#" class="btn mt-4">kick</a>
-                                            <a href="#" class="btn mt-4">tpme</a>
-                                            <a href="#" class="btn mt-4">tp</a>
-                                            
-                                        </div>
-                                        <div class="player">
-                                            <p>rubius</p>
-                                            <a href="#" class="btn mt-4">ban</a>
-                                            <a href="#" class="btn mt-4">kick</a>
-                                            <a href="#" class="btn mt-4">tpme</a>
-                                            <a href="#" class="btn mt-4">tp</a>
-
-                                        </div>
-                                        <div class="player">
-                                            <p>calius</p>
-                                            <a href="#" class="btn mt-4">ban</a>
-                                            <a href="#" class="btn mt-4">kick</a>
-                                            <a href="#" class="btn mt-4">tpme</a>
-                                            <a href="#" class="btn mt-4">tp</a>
-
-                                        </div>
-                                        <div class="player">
-                                            <p>gububu</p>
-                                            <a href="#" class="btn mt-4">ban</a>
-                                            <a href="#" class="btn mt-4">kick</a>
-                                            <a href="#" class="btn mt-4">tpme</a>
-                                            <a href="#" class="btn mt-4">tp</a>
-
-                                        </div>
+                                        style="display: none; padding-left: 7rem;padding-top: 1rem;overflow-y: scroll;height: 400px;">                        
                                     </div>
 
                                     <style>
@@ -129,8 +86,6 @@
                                             border-radius: 2px;
                                             margin-bottom: 1rem;
                                             box-shadow: 0 8px 24px 0 rgba(255, 235, 167, .2);
-
-
                                         }
 
                                         .player p {
