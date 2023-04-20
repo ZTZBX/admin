@@ -29,7 +29,8 @@
                                     <ul class="menu">
                                         <li title="utilities"><a class="utilities" onclick="showUtl()">Utilities</a>
                                         </li>
-                                        <li title="players"><a class="players" id="getplayers" onclick="showPlayers()">Players</a></li>
+                                        <li title="players"><a class="players" id="getplayers"
+                                                onclick="showPlayers()">Players</a></li>
 
                                         <li title="exit" id="exit" style="position: fixed; bottom: 0;"><a
                                                 class="exit">Exit</a></li>
@@ -74,24 +75,39 @@
                                     </div>
 
                                     <div id="players_menu"
-                                        style="display: none; padding-left: 7rem;padding-top: 1rem;overflow-y: scroll;height: 400px;">                        
+                                        style="display: none; padding-left: 7rem;padding-top: 1rem;height: 400px;">
+                                        <input type="text" id="playersFilter" onkeyup="filterPlayers()" placeholder="Username Filter" style="width: 90%; margin-bottom: 1rem; position: sticky;top: 0;" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                        <div class="player" id="player_pepe">
+                                            <p style="float: left;">pepe</p>
+                                            <div class="user_option" onclick="showPlayerOption('pepe')">
+                                                <svg class="user_option_image" id="user_option_image_down_pepe"
+                                                    xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                    fill="#1f2029" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                                </svg>
+
+                                                <svg class="user_option_image" id="user_option_image_up_pepe"
+                                                    style="display: none;" xmlns="http://www.w3.org/2000/svg" width="20"
+                                                    height="20" fill="#1f2029" class="bi bi-arrow-down"
+                                                    viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+                                                </svg>
+                                            </div>
+
+                                            <div class="player_option" id="option_pepe" style="display: none;">
+
+                                                <a href="#" onClick="" class="btn mt-4">ban</a>
+                                                <a href="#" onClick="" class="btn mt-4">kick</a>
+                                                <a href="#" onClick="" class="btn mt-4">tpme</a>
+                                                <a href="#" onClick="" class="btn mt-4">tpa</a>
+                                                <a href="#" onClick="" class="btn mt-4">Freeze</a>
+                                            </div>
+                                        </div>
+
+
                                     </div>
-
-                                    <style>
-                                        .player {
-                                            height: 90px;
-                                            width: 90%;
-                                            color: #1f2029;
-                                            background-color: white;
-                                            border-radius: 2px;
-                                            margin-bottom: 1rem;
-                                            box-shadow: 0 8px 24px 0 rgba(255, 235, 167, .2);
-                                        }
-
-                                        .player p {
-                                            margin-bottom: 0;
-                                        }
-                                    </style>
                                 </div>
                             </div>
                         </div>

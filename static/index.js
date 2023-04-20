@@ -1,5 +1,36 @@
 window.players = [];
 
+function showPlayerOption(user){
+    
+    var box = document.getElementById("player_"+user);
+
+    if (box.clientHeight == 40){
+        box.style.height = "140px";
+        var up_row = document.getElementById("user_option_image_up_"+user);
+        up_row.style.display = "inline";
+
+        var up_down = document.getElementById("user_option_image_down_"+user);
+        up_down.style.display = "none";
+
+        document.getElementById("option_"+user).style.display = "inline-block";
+        
+    }
+    else {
+
+        box.style.height = "40px";
+        var up_row = document.getElementById("user_option_image_up_"+user);
+        up_row.style.display = "none";
+
+        var up_down = document.getElementById("user_option_image_down_"+user);
+        up_down.style.display = "inline";
+
+        document.getElementById("option_"+user).style.display = "none";
+
+    }
+    
+
+}
+
 function showUtl() {
     var target = document.getElementById("utilities_menu");
     var other_pl = document.getElementById("players_menu");
@@ -81,14 +112,44 @@ function tpme(user) {
     })
 }
 
+function freeze(user) {
+    fetch(`https://admin/freeze`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify({
+            username: user,
+        })
+    })
+}
+
 function generatePlayerHtml(username) {
-    var players_base = ' \
-    <div class="player" id="player_'+ username + '"> \
-    <p>'+ username + '</p> \
+    var players_base ='\
+    <div class="player" id="player_'+username+'">\
+    <p style="float: left;">'+username+'</p>\
+    <div class="user_option" onclick="showPlayerOption(\''+username+'\')">\
+    <svg class="user_option_image" id="user_option_image_down_'+username+'"\
+    xmlns="http://www.w3.org/2000/svg" width="20" height="20"\
+    fill="#1f2029" class="bi bi-arrow-down" viewBox="0 0 16 16">\
+    <path fill-rule="evenodd"\
+    d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />\
+    </svg>\
+    <svg class="user_option_image" id="user_option_image_up_'+username+'"\
+    style="display: none;" xmlns="http://www.w3.org/2000/svg" width="20"\
+    height="20" fill="#1f2029" class="bi bi-arrow-down"\
+    viewBox="0 0 16 16">\
+    <path fill-rule="evenodd"\
+    d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />\
+    </svg>\
+    </div>\
+    <div class="player_option" id="option_'+username+'" style="display: none;">\
     <a href="#" onClick="banPlayer(\''+ username + '\')" class="btn mt-4">ban</a> \
     <a href="#" onClick="chickPlayer(\''+ username + '\')" class="btn mt-4">kick</a> \
     <a href="#" onClick="tpme(\''+ username + '\')" class="btn mt-4">tpme</a> \
     <a href="#" onClick="tpa(\''+ username + '\')" class="btn mt-4">tpa</a> \
+    <a href="#" onClick="freeze(\''+ username + '\')" class="btn mt-4">Freeze</a> \
+    </div>\
     </div>';
 
     return players_base;

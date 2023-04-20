@@ -223,3 +223,34 @@ body {
     color: #CE0F0F;
     box-shadow: 0 8px 24px 0 rgba(16, 39, 112, .2);
 }
+
+.user_option {
+    height: 30px;
+    width: 30px;
+    float: right;
+    border-radius: 8px;
+}
+
+.user_option:hover {
+    background-color: #1f2029;
+
+}
+
+.user_option:hover .user_option_image {
+    fill: white;
+}
+
+.player {
+    height: 40px;
+    width: 90%;
+    color: #1f2029;
+    background-color: white;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+    box-shadow: 0 8px 24px 0 rgba(255, 235, 167, .2);
+    padding: 6px;
+}
+
+.player p {
+    margin-bottom: 0;
+}
