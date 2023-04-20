@@ -37,7 +37,7 @@ namespace admin.Server
             {
                 int PlayerTargetNetworkId = Exports["core-ztzbx"].getPlayerNetworkIdFromUsername(username);
                 Vector3 playerCoords = GetEntityCoords(NetworkGetEntityFromNetworkId(PlayerTargetNetworkId));
-                SetEntityCoords(user.Character.NetworkId, playerCoords.X, playerCoords.Y, playerCoords.Z, false, false, false, false);
+                SetEntityCoords(NetworkGetEntityFromNetworkId(user.Character.NetworkId), playerCoords.X, playerCoords.Y, playerCoords.Z, false, false, false, false);
             }
         }
 
@@ -49,7 +49,7 @@ namespace admin.Server
             {
                 int PlayerTargetNetworkId = Exports["core-ztzbx"].getPlayerNetworkIdFromUsername(username);
                 Vector3 playerCoords = GetEntityCoords(NetworkGetEntityFromNetworkId(user.Character.NetworkId));
-                SetEntityCoords(PlayerTargetNetworkId, playerCoords.X, playerCoords.Y, playerCoords.Z, false, false, false, false);
+                SetEntityCoords(NetworkGetEntityFromNetworkId(PlayerTargetNetworkId), playerCoords.X, playerCoords.Y, playerCoords.Z, false, false, false, false);
             }
         }
 

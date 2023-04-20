@@ -24,11 +24,11 @@ namespace admin.Client
 
             if (username.ToString() == "me")
             {
-                TriggerServerEvent("kickPlayer", Exports["core-ztzbx"].playerToken(), Exports["core-ztzbx"].playerUsername(), reason);
+                TriggerServerEvent("kickPlayer", Exports["core-ztzbx"].playerToken(), Exports["core-ztzbx"].playerUsername(), reason.ToString());
             }
             else 
             {
-                TriggerServerEvent("kickPlayer", Exports["core-ztzbx"].playerToken(), username, reason);
+                TriggerServerEvent("kickPlayer", Exports["core-ztzbx"].playerToken(), username.ToString(), reason.ToString());
             }
              
         }

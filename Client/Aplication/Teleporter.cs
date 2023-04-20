@@ -23,7 +23,9 @@ namespace admin.Client
 
             if (!data.TryGetValue("username", out username)) { return; }
 
-            TriggerServerEvent("teleportToPlayer", Exports["core-ztzbx"].playerToken(), username);
+            Debug.WriteLine(username.ToString());
+
+            TriggerServerEvent("teleportToPlayer", Exports["core-ztzbx"].playerToken(), username.ToString());
         }
 
         private void TpmeNui(IDictionary<string, object> data, CallbackDelegate cb)
@@ -32,7 +34,7 @@ namespace admin.Client
 
             if (!data.TryGetValue("username", out username)) { return; }
 
-            TriggerServerEvent("teleportPlayerToMe", Exports["core-ztzbx"].playerToken(), username);
+            TriggerServerEvent("teleportPlayerToMe", Exports["core-ztzbx"].playerToken(), username.ToString());
         }
 
     }
