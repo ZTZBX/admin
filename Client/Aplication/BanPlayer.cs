@@ -18,7 +18,6 @@ namespace admin.Client
         {
             object username;
 
-            Debug.WriteLine("pepepepe");
             if (!data.TryGetValue("username", out username)) { return; }
             string token = Exports["core-ztzbx"].banPlayer(username);
         }

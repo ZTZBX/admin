@@ -52,7 +52,31 @@ function chickPlayer(user) {
         },
         body: JSON.stringify({
             username: user,
-            reason: "Admin kick test"
+            reason: "Administrator kicked you!"
+        })
+    })
+}
+
+function tpa(user) {
+    fetch(`https://admin/tpa`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify({
+            username: user,
+        })
+    })
+}
+
+function tpme(user) {
+    fetch(`https://admin/tpme`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify({
+            username: user,
         })
     })
 }
@@ -63,8 +87,8 @@ function generatePlayerHtml(username) {
     <p>'+ username + '</p> \
     <a href="#" onClick="banPlayer(\''+ username + '\')" class="btn mt-4">ban</a> \
     <a href="#" onClick="chickPlayer(\''+ username + '\')" class="btn mt-4">kick</a> \
-    <a href="#" class="btn mt-4">tpme</a> \
-    <a href="#" class="btn mt-4">tp</a> \
+    <a href="#" onClick="tpme(\''+ username + '\')" class="btn mt-4">tpme</a> \
+    <a href="#" onClick="tpa(\''+ username + '\')" class="btn mt-4">tpa</a> \
     </div>';
 
     return players_base;
