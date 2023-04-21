@@ -13,3 +13,19 @@ mklink /d X:\cfx-server-data\resources\[local]\admin dist
 ```
 
 Afterwards, you can use `ensure admin` in your server.cfg or server console to start the resource.
+
+### Features
+
+- View coords
+- Make yourself invincible
+- Noclip very easy to use and smooth
+- Revive yourself 
+- kill yourself 
+- kick yourself 
+- Ban player
+- Kick Player
+- Teleport to Player
+- Teleport Player to me
+- Freeze Player
+- Easy interface to use
+- Player list with filter 
