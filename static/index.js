@@ -226,7 +226,9 @@ $(function () {
             },
             body: JSON.stringify({
             })
-        }).then(resp => resp.json())
+        }).then()
+        .catch(err => {   
+        });
     });
 
 
