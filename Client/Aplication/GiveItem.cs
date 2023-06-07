@@ -33,8 +33,7 @@ namespace admin.Client
 
             if (!data.TryGetValue("item", out item)) { return; }
             if (!data.TryGetValue("quantity", out quantity)) { return; }
-            TriggerServerEvent("giveItemToMe", Exports["core-ztzbx"].playerToken(), item.ToString(), Int32.Parse(quantity.ToString()));
-
+            Exports["inventory"].addItemInventory(item.ToString(), Int32.Parse(quantity.ToString()));
             cb(new
             {
                 data = "ok",

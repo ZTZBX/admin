@@ -16,17 +16,6 @@ namespace admin.Server
             EventHandlers["teleportToPlayer"] += new Action<Player, string, string>(TeleportToPlayer);
             EventHandlers["teleportPlayerToMe"] += new Action<Player, string, string>(TeleportPlayerToMe);
             EventHandlers["freezePlayer"] += new Action<Player, string, string>(FreezePlayer);
-            EventHandlers["giveItemToMe"] += new Action<Player, string, string, int>(GiveItemToMe);
-        }
-
-        private void GiveItemToMe([FromSource] Player user, string token, string item, int quantity)
-        {
-            bool isAdmin = Exports["core-ztzbx"].playerAdmin(token);
-            
-            if (isAdmin)
-            {
-                Exports["inventory"].setPlayerItemInInventory(token, item, quantity);
-            }
         }
 
         private void FreezePlayer([FromSource] Player user, string token, string username)

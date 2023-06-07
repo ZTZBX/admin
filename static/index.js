@@ -174,7 +174,7 @@ function generateItemHtml(itemName) {
     var players_base ='\
     <div class="player" id="item_'+itemName+'">\
     <p style="float: left;">'+itemName+'</p>\
-    <input type="number" id="item_value_'+itemName+'" class="form-control" style="float: left;margin-left:20px;width:90px;height:30px" />\
+    <input type="number"  onkeypress="return event.charCode >= 48" min="1" id="item_value_'+itemName+'" class="form-control" style="float: left;margin-left:20px;width:90px;height:30px" />\
     <a href="#" class="btn mt-4" onClick="addItemToInvt(\''+itemName+'\')" name="item_'+itemName+'" style="margin-top:0!important;" >Get</a>\
     </div>';
 
