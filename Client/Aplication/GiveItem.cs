@@ -38,6 +38,8 @@ namespace admin.Client
             {
                 data = "ok",
             });
+
+            Exports["notification"].send("SYSTEM", Exports["core-ztzbx"].playerUsername(), $"Adding <{quantity.ToString()}> {item.ToString()} to your inventory");
         }
 
     }

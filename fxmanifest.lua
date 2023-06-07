@@ -17,7 +17,8 @@ description 'ztzbx admin'
 
 dependencies {
     "core-ztzbx",
-    "inventory"
+    "inventory",
+    "notification"
 }
 
 ui_pages {
