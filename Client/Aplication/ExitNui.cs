@@ -18,6 +18,11 @@ namespace admin.Client
         {
             ClientMain.AdminNui(false);
             NuiStatus.active = false;
+
+            cb(new
+            {
+                data = "ok",
+            });
         }
 
     }

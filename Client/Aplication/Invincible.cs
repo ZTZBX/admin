@@ -34,6 +34,11 @@ namespace admin.Client
         {
             if (NuiStatus.Invincible) { NuiStatus.Invincible = false;}
             else { NuiStatus.Invincible = true; }
+
+            cb(new
+            {
+                data = "ok",
+            });
         }
 
     }

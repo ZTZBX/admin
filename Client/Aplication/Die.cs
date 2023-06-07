@@ -17,6 +17,11 @@ namespace admin.Client
         private void Kill(IDictionary<string, object> data, CallbackDelegate cb)
         {
             SetEntityHealth(GetPlayerPed(-1), 0);
+
+            cb(new
+            {
+                data = "ok",
+            });
         }
 
     }

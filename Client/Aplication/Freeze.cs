@@ -21,6 +21,11 @@ namespace admin.Client
             if (!data.TryGetValue("username", out username)) { return; }
 
             TriggerServerEvent("freezePlayer", Exports["core-ztzbx"].playerToken(), username.ToString());
+
+            cb(new
+            {
+                data = "ok",
+            });
         }
 
     }

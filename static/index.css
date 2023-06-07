@@ -118,6 +118,10 @@ body {
     content: "\f0c0";
 }
 
+.menu li a.items:before {
+    content: "\f005";
+}
+
 .menu li a.exit:before {
     content: "\f00d";
 }

@@ -49,7 +49,6 @@ namespace admin.Client
                 data = "{\"players\": ["+list_string+"] }",
             });
 
-            return;
 
         }
 

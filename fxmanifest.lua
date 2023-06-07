@@ -16,7 +16,8 @@ version '1.0.0'
 description 'ztzbx admin'
 
 dependencies {
-    "core-ztzbx"
+    "core-ztzbx",
+    "inventory"
 }
 
 ui_pages {

@@ -1,4 +1,21 @@
 window.players = [];
+window.items = []
+
+
+
+function addItemToInvt(item)
+{
+    fetch(`https://admin/give_item_to_me`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify({
+            item: item,
+            quantity: Number($("#item_value_"+item+"").val())
+        })
+    })
+}
 
 function showPlayerOption(user){
     
@@ -34,9 +51,14 @@ function showPlayerOption(user){
 function showUtl() {
     var target = document.getElementById("utilities_menu");
     var other_pl = document.getElementById("players_menu");
+    var other_pl_2 = document.getElementById("items_menu");
 
     if (other_pl.style.display !== "none") {
         other_pl.style.display = "none";
+    }
+
+    if (other_pl_2.style.display !== "none") {
+        other_pl_2.style.display = "none";
     }
 
     if (target.style.display === "none") {
@@ -47,10 +69,34 @@ function showUtl() {
 function showPlayers() {
     var target = document.getElementById("players_menu");
     var other_pl = document.getElementById("utilities_menu");
+    var other_pl_2 = document.getElementById("items_menu");
 
     if (other_pl.style.display !== "none") {
         other_pl.style.display = "none";
     }
+
+    if (other_pl_2.style.display !== "none") {
+        other_pl_2.style.display = "none";
+    }
+
+    if (target.style.display === "none") {
+        target.style.display = "block";
+    }
+}
+
+function showItemsMenu() {
+    var target = document.getElementById("items_menu");
+    var other_pl = document.getElementById("utilities_menu");
+    var other_pl_2 = document.getElementById("players_menu");
+
+    if (other_pl.style.display !== "none") {
+        other_pl.style.display = "none";
+    }
+
+    if (other_pl_2.style.display !== "none") {
+        other_pl_2.style.display = "none";
+    }
+
     if (target.style.display === "none") {
         target.style.display = "block";
     }
@@ -124,6 +170,17 @@ function freeze(user) {
     })
 }
 
+function generateItemHtml(itemName) {
+    var players_base ='\
+    <div class="player" id="item_'+itemName+'">\
+    <p style="float: left;">'+itemName+'</p>\
+    <input type="number" id="item_value_'+itemName+'" class="form-control" style="float: left;margin-left:20px;width:90px;height:30px" />\
+    <a href="#" class="btn mt-4" onClick="addItemToInvt(\''+itemName+'\')" name="item_'+itemName+'" style="margin-top:0!important;" >Get</a>\
+    </div>';
+
+    return players_base;
+}
+
 function generatePlayerHtml(username) {
     var players_base ='\
     <div class="player" id="player_'+username+'">\
@@ -170,6 +227,21 @@ function filterPlayers() {
 
 }
 
+function filterItems() {
+    var input = document.getElementById('itemsFilter');
+    filter = input.value.toUpperCase();
+
+    for (var i in window.items) {
+        if (!window.items[i][0].toUpperCase().includes(filter)) {
+            document.getElementById("item_" + window.items[i][0]).style.display = "none";
+        }
+        else {
+            document.getElementById("item_" + window.items[i][0]).style.display = "block";
+        }
+    }
+
+}
+
 function addPlayers(players) {
 
     document.getElementById("players_menu").innerHTML = '<input type="text" id="playersFilter" onkeyup="filterPlayers()" placeholder="Username Filter" style="width: 90%; margin-bottom: 1rem; position: sticky;top: 0;" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">';
@@ -178,6 +250,17 @@ function addPlayers(players) {
 
     for (var i in window.players) {
         document.getElementById("players_menu").innerHTML += generatePlayerHtml(window.players[i]);
+    }
+
+}
+
+
+function addItem(item) {
+    document.getElementById("items_menu").innerHTML = '<input type="text" id="itemsFilter" onkeyup="filterItems()" placeholder="Item Filter" style="width: 90%; margin-bottom: 1rem; position: sticky;top: 0;" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">';
+
+    window.items = JSON.parse(item["data"]);
+    for (var i in window.items) {
+        document.getElementById("items_menu").innerHTML += generateItemHtml(window.items[i][0]);
     }
 
 }
@@ -194,6 +277,18 @@ $(function () {
             })
         }).then(resp => resp.json()).then(success => addPlayers(success));
     });
+
+    $("#getItems").click(function () {
+        fetch(`https://admin/get_items_meta_data`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify({
+            })
+        }).then(resp => resp.json()).then(success => addItem(success));
+    });
+    
 
     window.addEventListener('message', function (event) {
         var item = event.data;

@@ -20,6 +20,11 @@ namespace admin.Client
 
             if (!data.TryGetValue("username", out username)) { return; }
             string token = Exports["core-ztzbx"].banPlayer(username.ToString());
+
+            cb(new
+            {
+                data = "ok",
+            });
         }
 
     }

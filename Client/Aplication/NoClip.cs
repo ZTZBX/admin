@@ -139,6 +139,11 @@ namespace admin.Client
         {
             if (NuiStatus.noClip) { NuiStatus.noClip = false; SetEntityVisible(GetPlayerPed(-1), true, false); }
             else { NuiStatus.noClip = true; }
+
+            cb(new
+            {
+                data = "ok",
+            });
         }
 
     }

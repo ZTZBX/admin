@@ -23,7 +23,6 @@ namespace admin.Client
             {
                 coords = "{\"x\":"+currect_coords.X+", \"y\": "+currect_coords.Y+", \"z\": "+currect_coords.Z+"}",
             });
-            return;
 
         }
 

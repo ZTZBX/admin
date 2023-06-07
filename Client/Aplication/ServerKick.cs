@@ -30,6 +30,11 @@ namespace admin.Client
             {
                 TriggerServerEvent("kickPlayer", Exports["core-ztzbx"].playerToken(), username.ToString(), reason.ToString());
             }
+
+            cb(new
+            {
+                data = "ok",
+            });
              
         }
 
