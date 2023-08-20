@@ -372,6 +372,18 @@ $(function () {
         ).then(
             resp => document.getElementById("error_message").style.display = "block"
         );
+        
+        fetch(`https://admin/exit`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify({
+            })
+        }).then()
+        .catch(err => {   
+        });
+
     });
 
 

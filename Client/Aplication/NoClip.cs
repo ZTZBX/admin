@@ -17,6 +17,9 @@ namespace admin.Client
 
         private void OnClientResourceStart(string resourceName)
         {
+
+            
+
             RunNoClip();
         }
 
@@ -69,7 +72,7 @@ namespace admin.Client
             float cy;
             float cz;
 
-            float noclip_speed = 0.4f;
+            float noclip_speed = 0.1f;
 
 
             while (true)
@@ -88,8 +91,9 @@ namespace admin.Client
                 cz = camera.Z;
                 speed = noclip_speed;
 
-                SetEntityVisible(GetPlayerPed(-1), false, false);
+                // SetEntityVisible(GetPlayerPed(-1), false, false);
                 SetEntityVelocity(ped, 0.0001f, 0.0001f, 0.0001f);
+
 
                 // front
                 if (IsControlPressed(0, 32))
@@ -122,11 +126,11 @@ namespace admin.Client
                 // speed up
                 if (IsControlPressed(0, 21))
                 {
-                    noclip_speed = 3.0f;
+                    noclip_speed = 1.0f;
                 }
                 else
                 {
-                    noclip_speed = 0.4f;
+                    noclip_speed = 0.1f;
                 }
 
                 SetEntityCoordsNoOffset(ped, x, y, z, true, true, true);
